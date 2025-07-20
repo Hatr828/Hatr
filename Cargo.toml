@@ -1,0 +1,8 @@
+[package]
+name = "my_lang"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+inkwell = { version = "0.6.0", default-features = false, features = ["llvm18-1"] }
+libc = "0.2"
