@@ -1,20 +1,14 @@
 mod frontend;
 
 use std::fs;
-use crate::frontend::lexer::Lexer;
-use crate::frontend::tokens::TokenKind;
+use crate::frontend::parser::Parser;
+
 fn main() {
+    let input = fs::read_to_string("test.txt")
+        .expect("Error: couldn\'t read test.txt");
 
-    let input: String = fs::read_to_string("test.txt")
-        .expect("Error while opening test.txt");
+    let mut parser = Parser::new(&input);
+    let program = parser.parse_program();
 
-    let mut lexer = Lexer::new(&input);
-
-    loop {
-        let token = lexer.next_token();
-        println!("{:?}", token);
-        if let TokenKind::Eof = token.kind {
-            break;
-        }
-    }
+    println!("Parsed AST:\n{:#?}", program);
 }

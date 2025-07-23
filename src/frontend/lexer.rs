@@ -68,7 +68,7 @@ impl<'a> Lexer<'a> {
                     '}' => TokenKind::Delimiter(Delimiter::RBrace),
                     ';' => TokenKind::Delimiter(Delimiter::Semicolon),
                     ',' => TokenKind::Delimiter(Delimiter::Comma),
-                    '=' => TokenKind::Operator(Operator::Eq),
+                    '=' => TokenKind::Operator(Operator::Assign),
                     _   => TokenKind::NotFound,
                 };
                 self.read_char();

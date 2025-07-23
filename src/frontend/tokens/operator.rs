@@ -4,6 +4,7 @@ pub enum Operator {
     Minus,   // '-'
     Star,    // '*'
     Slash,   // '/'
+    Assign, // '='
     Eq,      // '=='
     Neq,     // '!='
     Lt, Gt,  // '<', '>'
